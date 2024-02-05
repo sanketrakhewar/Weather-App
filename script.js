@@ -6,6 +6,9 @@ function getWeather() {
         alert('Please enter a city');
         return;
     }
+    loader.style.display = 'block'; // Show the loader
+    document.getElementById("weather-container").style.display = 'none'; // Hide the weather container
+
 
     const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
@@ -13,11 +16,15 @@ function getWeather() {
         .then(response => response.json())
         .then(data => {
             displayWeather(data);
+            loader.style.display = 'none'; // Hide the loader on error
+            document.getElementById("weather-container").style.display = 'block'; // Hide the weather container
         })
         .catch(error => {
             console.error('Error fetching current weather data:', error);
             alert('Error fetching current weather data. Please try again.');
+            loader.style.display = 'none'; // Hide the loader on error
         });
+       
 }
 
 function displayWeather(data) {

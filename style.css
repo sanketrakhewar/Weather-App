@@ -19,6 +19,11 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
 }
+.spinner-border{
+    width: 5rem; 
+    height: 5rem;
+    display: none;
+}
 
 h1,label, p {
     color: 31304D;
